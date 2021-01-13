@@ -20,11 +20,11 @@ Kemudian, untuk dapat mulai bekerja, perlu dilakukan reboot dari OSnya terlebih 
 
 Setelah reboot selesai, maka akan dapat menggunakan perintah-perintah yang telah di set pada program ini 
 
-```
-Eusage -c   untuk mengubah settingan
+``` Eusage -c   untuk mengubah settingan
 Eusage -r   untuk mereset
 Eusage -u   untuk menunjukkan yang data penggunaan current
 Eusage -h   untuk help
 Eusage -H   untuk menunjukkan history yang ada dengan memasukkan tahun dan bulan yang ingin dicari ```
 
-
+----------------------
+### Penjelasan Koding
