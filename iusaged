@@ -27,7 +27,7 @@ def current_usage():
 	usage=0;
 	for i in c:
         	k=0
-		if i.__contains__("eth0:") or i.__contains__("eth1:"):
+		if i.__contains__("lo:") or i.__contains__("ens33:"):
         	       for j in i.split():
 				if(k==1 or k==9):
 					usage=int(usage)+int(j);

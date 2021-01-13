@@ -59,15 +59,15 @@ def History(month,year):
 			break;
 	fp.close()
 	try:
-		print "Usage for "+month+"-"+year+" is "+Format_usage(usage);
+		print "Penggunaan pada "+month+"-"+year+" adalah "+Format_usage(usage);
 	except UnboundLocalError:
-		print "No record for the date"	
+		print "Tidak ada data"	
 def Help():
-	print "-c for changing the settings\
-	       -h for help\
-	       -u for usage info\
-	       -r for reset\
-		-H month year for returning the usage value of that month in given year"
+	print "-c untuk mengubah setting\
+	       -h untuk help\
+	       -u untuk usage info\
+	       -r untuk reset\
+		-H bulan tahun untuk menunjukkan history pada tahun tersebut"
 try:
 	sys.argv[1]
 except IndexError :
