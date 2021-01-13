@@ -10,7 +10,7 @@ class FromTo:
 		self.to=to;
 		self.refresh_day=day;
 def Reset():
-	confirm=raw_input("Mau di reset? (y untuk ya):");
+	confirm=input("Mau di reset? (y untuk ya):");
 	if(confirm=="y"):
 		fp=open(HOME+"/.usage/Current","w");
 		fp.write("0");
@@ -19,9 +19,9 @@ def Reset():
 		fp.write("0");
 		fp.close();
 def Settime():
-	from_time=int(raw_input("Jam mulai dihitung (contoh : 230 -> 2.30) : \n"))
-	to_time=int(raw_input("Jam selesai di hitung (sama dengan sebelumnya) : \n"))
-	day=int(raw_input("Hari dalam sebulan untuk direset : \n"))
+	from_time=int(input("Jam mulai dihitung (contoh : 230 -> 2.30) : \n"))
+	to_time=int(input("Jam selesai di hitung (sama dengan sebelumnya) : \n"))
+	day=int(input("Hari dalam sebulan untuk direset : \n"))
 	fp=open(HOME+"/.usage/Freetime","w");
 	freetime=FromTo(from_time,to_time,day)
 	os.system("bash Resetcron "+str(day));	
@@ -35,7 +35,7 @@ def Usage():
 	usage=usage+int(fp.read());
 	fp.close();
 	usage=Format_usage(usage);
-	print usage
+	print(usage)
 def Format_usage(usage):
 	s=1000000000;
 	while(s>1):
@@ -59,15 +59,15 @@ def History(month,year):
 			break;
 	fp.close()
 	try:
-		print "Penggunaan pada "+month+"-"+year+" adalah "+Format_usage(usage);
+		print("Penggunaan pada "+month+"-"+year+" adalah "+Format_usage(usage));
 	except UnboundLocalError:
-		print "Tidak ada data"	
+		print("Tidak ada data")	
 def Help():
-	print "-c untuk mengubah setting\
+	print("-c untuk mengubah setting\
 	       -h untuk help\
 	       -u untuk usage info\
 	       -r untuk reset\
-		-H bulan tahun untuk menunjukkan history pada tahun tersebut"
+		-H bulan tahun untuk menunjukkan history pada tahun tersebut")
 try:
 	sys.argv[1]
 except IndexError :
@@ -85,6 +85,6 @@ elif(sys.argv[1]=="-H"):
 	except IndexError:
 		Help()
 elif(sys.argv[1]=="-h"):
-	print Help()
+	print(Help())
 else:
 	Help()
