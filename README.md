@@ -30,6 +30,11 @@ Eusage -H   untuk menunjukkan history yang ada dengan memasukkan tahun dan bulan
 
 ![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/img/history.png)
 
+![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/img/help.PNG)
+
+![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/img/reset.PNG)
+
+![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/img/setting.PNG)
 ----------------------
 ### Penjelasan Koding
 `Installer.sh` adalah awal untuk menginstall aplikasi.
@@ -42,10 +47,13 @@ Tampilan setelah menjalankan `Installer.sh ` adalah `Initial.py`
 
 Pada `Initial.py` ditentukan bahwa `HOME=/home/honeysweetpotato` dimana ini merupakan home dari ubuntu saya.
 
-Kemudian menggunakan library `os` dan `pickle` dimana library `pickle` ini yang digunakan untuk mengambil packet penggunaan internetnya.
-
 Berikutnya mengeset waktu dan hari dengan meminta input dari pengguna, sesuai dengan gambar yang ada di atas.
 
 Pada file `Eusage` menggunakan bahasa python dengan mengimport lib `sys`, `os`, `pickle`, dan `time`. Pada `Reset()`, adalah untuk mereset aplikasi, mengembalikan ke state sebelum adanya perubahan. Pada `Settime()`, seperti pada `initial.py`, untuk mengeset jam dan hari, namun ini digunakan setelah aplikasi telah terinstall. Pada `Usage()`, memangggil penggunaan kuota yang telah digunakan. Pada `Format_usage()`, mengeset supaya bisa lebih mudah dimengerti kuota yang digunakannya (dalam bentuk Byte, KiloByte, MegaBytem GigaByte). Pada `History(month,year)` digunakan untuk menunjukkan history yang ada sebelumnya. `Help()` untuk menunjukkan perintah yang tersedia. Berikutnya dibawahnya adalah setting untuk perintah-perintah, `-r` memanggil `Reset()`, `-u` memanggil `Usage()`, `-c` memanggil `Settime()`, dan `-H` memanggil `History()`, dan `-h` memanggil `Help()`. Pada `iusaged` disini mengambil data dari `/proc/net/dev`
 
 Pada `Reset` digunakan untuk mereset semua data yang ada. Data-data yang sudah ada dijadikan kembali kosong atau `0`. `ResetCron` digunakan untuk mereset cron atau setingan waktu
+
+
+Untuk bot, disini menggunakan webhook discord. Skemanya adalah dengan memanggil `Current` untuk mengecek penggunaannya. Jika melewati batas tertentu, maka akan mengirimkan notifikasi ke discord seperti berikut :
+
+![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/img/bot.PNG)
