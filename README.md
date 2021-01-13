@@ -13,7 +13,7 @@ Kemudian akan muncul perintah perintah untuk memasukkan data, sehingga tidak per
 - waktu diakhiri perhitungan
 - tanggal dalam sebulan untuk reset
 
-![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/installer.png)
+![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/img/installer.png)
 
 User perlu memasukkan berdasarkan petunjuk yang ada. 
 Kemudian, untuk dapat mulai bekerja, perlu dilakukan reboot dari OSnya terlebih dahulu.
@@ -25,6 +25,10 @@ Eusage -r   untuk mereset
 Eusage -u   untuk menunjukkan yang data penggunaan current
 Eusage -h   untuk help
 Eusage -H   untuk menunjukkan history yang ada dengan memasukkan tahun dan bulan yang ingin dicari `
+
+![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/img/usage.png)
+
+![](https://github.com/lumbricina/FP_IDS_Agnes-Lesmono_05311840000044/blob/main/img/history.png)
 
 ----------------------
 ### Penjelasan Koding
