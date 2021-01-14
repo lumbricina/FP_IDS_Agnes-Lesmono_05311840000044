@@ -12,10 +12,10 @@ class FromTo:
 def Reset():
 	confirm=input("Mau di reset? (y untuk ya):");
 	if(confirm=="y"):
-		fp=open(HOME+"/.usage/Current","w");
+		fp=open(HOME+"/.usage/Current","wb");
 		fp.write("0");
 		fp.close();
-		fp=open(HOME+"/.usage/Total","w");
+		fp=open(HOME+"/.usage/Total","wb");
 		fp.write("0");
 		fp.close();
 def Settime():
