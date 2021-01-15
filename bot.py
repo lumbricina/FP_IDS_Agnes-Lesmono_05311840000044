@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sys
 sys.path.append('../../')
 from discord_webhook import DiscordWebhook, DiscordEmbed
-sys.path.insert(0, '../.usage/Current')
-with open('../.usage/Current') as fp:
+sys.path.insert(0, '.usage/Current')
+with open('.usage/Current') as fp:
 	usage=int(fp.read())
 from datetime import datetime
 

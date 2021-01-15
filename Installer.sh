@@ -17,5 +17,5 @@ echo "0 0 1 * * $HOME/.usage/Reset" >> temp
 crontab temp 
 rm temp
 echo "PATH=$PATH:"$HOME/.usage"" >> $HOME/.bashrc;
-python "$HOME/.usage"/Initial.py
+python3 "$HOME/.usage"/Initial.py
 rm "$HOME/.usage"/Initial.py

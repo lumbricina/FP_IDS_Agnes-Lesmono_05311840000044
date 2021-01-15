@@ -1,84 +1,84 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sys
 import os
 import pickle
 import time
-HOME="/home/honeysweetpotato";
+HOME="/home/mono"
 class FromTo:
 	def __init__(self,frm,to,day):
-		self.frm=frm;
-		self.to=to;
-		self.refresh_day=day;
+		self.frm=frm
+		self.to=to
+		self.refresh_day=day
 def Reset():
-	confirm=input("Mau di reset? (y untuk ya):");
+	confirm=input("Mau di reset? (y untuk ya):")
 	if(confirm=="y"):
-		fp=open(HOME+"/.usage/Current","wb");
-		fp.write("0");
-		fp.close();
-		fp=open(HOME+"/.usage/Total","wb");
-		fp.write("0");
-		fp.close();
+		fp=open(HOME+"/.usage/Current","w")
+		fp.write("0")
+		fp.close()
+		fp=open(HOME+"/.usage/Total","w")
+		fp.write("0")
+		fp.close()
 def Settime():
-	from_time=int(input("Jam mulai dihitung (contoh : 230 -> 2.30) : \n"))
-	to_time=int(input("Jam selesai di hitung (sama dengan sebelumnya) : \n"))
-	day=int(input("Hari dalam sebulan untuk direset : \n"))
-	fp=open(HOME+"/.usage/Freetime","w");
+	from_time=int(input("Masukkan waktu mulai free usage(contoh: 230 untuk 2:30 pagi) : \n"))
+	to_time=int(input("Masukkan waktu ending (contoh: 230 untuk 2:30 pagi) : \n"))
+	day=int(input("Masukkan hari (ke sekian dalam sebulan) untuk value di refresh : \n"))
+	fp=open(HOME+"/.usage/Freetime","wb")
 	freetime=FromTo(from_time,to_time,day)
-	os.system("bash Resetcron "+str(day));	
+	os.system("bash Resetcron "+str(day))	
 	pickle.dump(freetime,fp)
 	fp.close()
 def Usage():
-	fp=open(HOME+"/.usage/Current","r");
-	usage=int(fp.read());
-	fp.close();
-	fp=open(HOME+"/.usage/Total","r");
-	usage=usage+int(fp.read());
-	fp.close();
-	usage=Format_usage(usage);
+	fp=open(HOME+"/.usage/Current","r")
+	usage=int(fp.read())
+	fp.close()
+	fp=open(HOME+"/.usage/Total","r")
+	usage=usage+int(fp.read())
+	fp.close()
+	usage=Format_usage(usage)
 	print(usage)
 def Format_usage(usage):
-	s=1000000000;
+	s=1000000000
 	while(s>1):
 		if((usage/s)>1):
 			if(s==1000000000):
-				return str((float)(usage)/s)+" GB";
+				return str((float)(usage)/s)+" GB"
 			elif(s==1000000):
-				return str((float)(usage)/s)+" MB";
+				return str((float)(usage)/s)+" MB"
 			elif(s==1000):
-				return str((float)(usage)/s)+" KB";
+				return str((float)(usage)/s)+" KB"
 			else :
-				return str((float)(usage)/s)+" B";
-		s=s/1000;
+				return str((float)(usage)/s)+" B"
+		s=s/1000
 def History(month,year):
 	fp=open(HOME+"/.usage/History")
 	block=fp.readlines()
 	for line in block:
 		if(line.startswith(year+" : "+month)):
 			y,m,usage=line.split(":")
-			usage=int(usage);
-			break;
+			usage=int(usage)
+			break
 	fp.close()
 	try:
-		print("Penggunaan pada "+month+"-"+year+" adalah "+Format_usage(usage));
+		print("Penggunaan pada bulan ke-"+month+" tahun "+year+" adalah "+Format_usage(usage))
 	except UnboundLocalError:
-		print("Tidak ada data")	
+		print ("Tidak ada data")
 def Help():
-	print("-c untuk mengubah setting\
-	       -h untuk help\
-	       -u untuk usage info\
-	       -r untuk reset\
-		-H bulan tahun untuk menunjukkan history pada tahun tersebut")
+	print ("-c : mengubah setting\
+	       -h : help\
+	       -u : usage info\
+	       -r : reset\
+		-H bulan tahun : untuk menunjukkan history yang diminta")
 try:
 	sys.argv[1]
 except IndexError :
 	Help()
 	sys.exit()
 if(sys.argv[1]=="-r"):
-	Reset();
+	Reset()
 elif(sys.argv[1]=="-u"):
-	Usage();
+	Usage()
 elif(sys.argv[1]=="-c"):
-	Settime();
+	Settime()
 elif(sys.argv[1]=="-H"):
 	try:
 		History(sys.argv[2],sys.argv[3])

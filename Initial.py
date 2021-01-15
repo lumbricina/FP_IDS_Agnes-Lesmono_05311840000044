@@ -1,4 +1,4 @@
-HOME="/home/honeysweetpotato";
+HOME="/home/mono";
 import os
 import pickle
 class FromTo:
@@ -7,9 +7,9 @@ class FromTo:
 		self.to=to;
 		self.refresh_day=day;
 def Settime():
-	from_time=int(raw_input("Jam mulai dihitung (contoh : 3.30 -> input 330) : \n"))
-	to_time=int(raw_input("Jam ditutup penggunaan waktunya (sistemnya sama dengan sebelumnya) : \n"))
-	day=int(raw_input("Hari perhitungan di reset : \n"))
+	from_time=int(input("Masukkan waktu mulai free usage(contoh: 230 untuk 2:30 pagi) : \n"))
+	to_time=int(input("Enter the ending hour of free usage(eg :130 for 1:30 am) : \n"))
+	day=int(input("Enter the day of month in which the values has to be refreshed : \n"))
 	fp=open(HOME+"/.usage/Freetime","w");
 	freetime=FromTo(from_time,to_time,day)
 	os.system("bash Resetcron "+str(day));	
